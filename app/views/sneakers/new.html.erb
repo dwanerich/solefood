@@ -1,0 +1,28 @@
+<h1>Add Sneaker </h1>
+
+<%= form_for(:sneaker) do |f|%>
+<%= f.label :name%>
+<%= f.text_field :name %> <br>
+
+<%= f.label :size %>
+<%= f.text_field :size %> <br>
+<%=f.label :price %>
+<%= f.text_field :price%> <br>
+
+<p>Select from an existing Brand </p>
+
+<div>
+
+<%= f.collection_select %>
+
+</div>
+
+<p>Add new Brand </p>
+<div>
+
+
+
+</div>
+
+<%= f.submit "Add Sneaker" %>
+<% end %>

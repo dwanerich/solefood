@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
   
   
   get '/signup' => 'users#new'
+
+  get '/about' => 'application#about'
 
   resources :users
   resources :sneakers
