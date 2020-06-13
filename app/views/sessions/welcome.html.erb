@@ -13,9 +13,16 @@
 <a href="/signup" class="btn btn-primary">Sign up</a>
  <a href="/login" class="btn btn-secondary">Sign in</a> <br>
 
+ <br>
 
-LOG IN WITH FACEBOOK <br>
-LOG IN WITH GOOGLE
+ <% if session[:user_id]%>
+<h1><%= @user.name %></h1>
+<h2>Email: <%= @user.email %></h2>
+<img src="<%= @user.image %>">
+<% else %>
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>
+
 
 
 </p>

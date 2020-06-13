@@ -7,6 +7,7 @@ class SneakersController < ApplicationController
 
     def new
         @sneaker = Sneaker.new
+        @brand = Brand.new
         @sneaker.build_brand
     end
 
