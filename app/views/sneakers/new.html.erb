@@ -14,11 +14,8 @@
 
 <%= f.collection_select :brand_id , Brand.all , :id , :name %>
 
-
-
-
 <p>Or Create a new Brand: </p>
-    <% f.hidden_field :brand_id %>
+    <%= f.hidden_field :brand_id %>
 
     <%= f.fields_for :brand do |b| %>
     <%= b.label :name %>
