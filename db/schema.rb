@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2020_06_13_025856) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
-    t.string "founder"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_025856) do
 
   create_table "sneakers", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.float "size"
     t.float "price"
     t.integer "user_id"

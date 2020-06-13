@@ -2,8 +2,7 @@ class Sneaker < ApplicationRecord
     belongs_to :user
     belongs_to :brand
     has_many :comments
-    accepts_nested_attributes for :brand
-
+    accepts_nested_attributes_for :brand
 
 
     def brand

@@ -1,28 +1,28 @@
-<h1>Add Sneaker </h1>
+<h2>Add New Sneaker </h2>
 
-<%= form_for(:sneaker) do |f|%>
-<%= f.label :name%>
+<%= form_for(@sneaker) do |f|%>
+<%= f.label :name %>
 <%= f.text_field :name %> <br>
 
 <%= f.label :size %>
 <%= f.text_field :size %> <br>
+
 <%=f.label :price %>
 <%= f.text_field :price%> <br>
 
-<p>Select from an existing Brand </p>
+<p>Select from existing Brands: </p>
 
-<div>
-
-<%= f.collection_select %>
-
-</div>
-
-<p>Add new Brand </p>
-<div>
+<%= f.collection_select :brand_id , Brand.all , :id , :name %>
 
 
 
-</div>
 
-<%= f.submit "Add Sneaker" %>
+<p>Or Create a new Brand: </p>
+    <% f.hidden_field :brand_id %>
+
+    <%= f.fields_for :brand do |b| %>
+    <%= b.label :name %>
+    <%= b.text_field :name %>
+    <% end %>
+<%= f.submit %>
 <% end %>
