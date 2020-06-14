@@ -7,11 +7,11 @@ class SneakersController < ApplicationController
 
     def new
         @sneaker = Sneaker.new
-        @brand = Brand.new
         @sneaker.build_brand
     end
 
     def create
+          binding.pry
         @sneaker = Sneaker.new(sneaker_params)
         @sneaker.user_id = session[:user_id]
 

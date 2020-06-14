@@ -14,8 +14,9 @@ class Sneaker < ApplicationRecord
     def build_brand
     end
 
-    def brand_id
-    end
+    # def brand_id
+    #     @sneaker.brand.id
+    # end
 
     def brand_id=
     end

@@ -5,6 +5,13 @@ ruby '2.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'ruby-saml', '~> 0.7.0' 
+  gem 'omniauth', '>= 1.1.1'
+  gem 'omniauth-saml', '~> 1.0.0'
+  gem 'omniauth-facebook'
+  gem 'bcrypt'
+  gem 'dotenv-rails'
+  gem 'pry'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -44,10 +51,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'bcrypt'
-  gem 'omniauth'
-  gem 'omniauth-facebook'
-  gem 'dotenv-rails'
+  
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
