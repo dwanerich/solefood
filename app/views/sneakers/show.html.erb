@@ -1,6 +1,11 @@
-<h2> @sneaker.name </h2>
+<h2> @user.username </h2>
 
-<%= @sneaker.username %>
+<h1>My Sneaker Collection</h1>
+
+<% @user.sneakers.each do |sneaker| %>
+<%= sneaker.name %>
+<% end %>
+
 
 <h2>Add Comment </h2>
 
@@ -13,4 +18,8 @@
 
 <%= f.submit %>
 <% end %>
+
+<p><%=link_to 'Edit', edit_sneaker_path(@sneaker)%></p><br>
+
+<%=button_to "Delete", @sneaker, method: :delete %>
 

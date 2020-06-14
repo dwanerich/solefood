@@ -26,6 +26,29 @@ class SneakersController < ApplicationController
         redirect_to '/' if !@sneaker
     end
 
+    def edit
+        @recipe = Recipe.find_by(id: params[:id])
+    end
+
+    def update
+
+        @sneaker = Sneaker.find_by(id: params[:id])
+        @sneaker.update(sneaker_params)
+        if @sneaker.valid?
+        redirect_to sneaker_path(@sneaker)
+        else
+        render :edit
+        end
+    end
+
+    def destroy
+        sneaker = Sneaker.find_by(id: params[:id])
+        sneaker.delete
+        redirect_to sneakers_path
+    end
+
+    end
+
         private
 
         def sneaker_params
