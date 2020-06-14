@@ -13,18 +13,23 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/about">Press</a>
+        <a class="nav-link" href="/">Profile</a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="/brands">Brands</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/sneakers">Sneakers</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/users">Collectors</a>
       </li>
+      <%if @user %>
       <li class="nav-item">
         <a class="nav-link" href="/logout">Log out</a>
       </li>
+      <% end %>
     </ul>
   
   </div>

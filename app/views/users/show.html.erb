@@ -1,7 +1,25 @@
 <br>
-Welcome <%= @user.username %> you're signed in now
+Welcome <%= @user.username.capitalize %>! <br> 
 
-<%= link_to "Add Sneaker" , new_sneaker_path %> <br>
-<a href="/logout" class="btn btn-secondary">Log out</a> <br>
+you're signed in now. <br>
+
+<%= link_to "Add Sneaker", new_sneaker_path %> ? <br>
+<a href="/logout" class="btn btn-secondary">Log out</a> <br> <br><br>
+
+______________________________________________________________________
+
+<br><br>
+
+
+<h2>My Sneaker Collection</h2>
+
+        <h2>Brands <%= User.find(session[:user_id]).brands.count %></h2>
+        <ul>
+        <% User.find(session[:user_id]).sneakers.each do |sneaker|%>
+        <li>
+        <%= sneaker.name%> by <%= sneaker.brand.name %> <a href="/sneakers/<%=sneaker.id%>/edit">edit</a>
+        </li>
+        <%end%>
+        </ul>
 
 <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br>

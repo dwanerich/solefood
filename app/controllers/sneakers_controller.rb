@@ -1,5 +1,8 @@
 class SneakersController < ApplicationController
 
+    before_action :require_login
+
+
     def index
         @sneakers = Sneaker.all
         
@@ -15,7 +18,7 @@ class SneakersController < ApplicationController
         @sneaker.user_id = session[:user_id]
 
         if @sneaker.save
-            redirect_to sneakers_path(@sneaker)
+            redirect_to users_path(@user)
         else
             render :new
         end
@@ -27,7 +30,7 @@ class SneakersController < ApplicationController
     end
 
     def edit
-        @recipe = Recipe.find_by(id: params[:id])
+        @sneaker = Sneaker.find_by(id: params[:id])
     end
 
     def update
@@ -35,7 +38,7 @@ class SneakersController < ApplicationController
         @sneaker = Sneaker.find_by(id: params[:id])
         @sneaker.update(sneaker_params)
         if @sneaker.valid?
-        redirect_to sneaker_path(@sneaker)
+        redirect_to user_path
         else
         render :edit
         end
@@ -45,8 +48,6 @@ class SneakersController < ApplicationController
         sneaker = Sneaker.find_by(id: params[:id])
         sneaker.delete
         redirect_to sneakers_path
-    end
-
     end
 
         private

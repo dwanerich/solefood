@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :sneakers
   end
 
+  resources :users do
+    resources :sneakers
+  end
+
   resources :sneakers do
     resources :comments
   end

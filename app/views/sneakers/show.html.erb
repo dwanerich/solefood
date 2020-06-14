@@ -1,25 +1,14 @@
-<h2> @user.username </h2>
 
-<h1>My Sneaker Collection</h1>
-
-<% @user.sneakers.each do |sneaker| %>
-<%= sneaker.name %>
-<% end %>
+<h1><%= @sneaker.name %> </h1>
 
 
-<h2>Add Comment </h2>
 
-<%= form_for(@comment) do |f|%>
+<p>Add Comment</p>
+
+<% form_for :comment do |f| %>
 <%= f.label :description %>
 <%= f.text_field :description%> <br>
 
-    <%= f.hidden_field :sneaker_id %>
-    <%= f.hidden_field :user_id %>
-
 <%= f.submit %>
 <% end %>
-
-<p><%=link_to 'Edit', edit_sneaker_path(@sneaker)%></p><br>
-
-<%=button_to "Delete", @sneaker, method: :delete %>
 

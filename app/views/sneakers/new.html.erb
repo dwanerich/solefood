@@ -13,8 +13,21 @@
 <% end %>
 
 
-<%= form_for(@sneaker) do |f|%>
+<%= form_for @sneaker do |f|%>
   <%=render partial: 'form', locals: {f: f}%>
+    <%=f.submit "Add Sneaker"%>
+
+
+<p>Select from existing Brands: </p>
+
+<%= f.collection_select :brand_id , Brand.all , :id , :name %>
+
+<p>Or Create a new Brand: </p>
+
+    <%= f.fields_for :brand do |b| %>
+    <%= b.label 'Name' %>
+    <%= b.text_field :name %>
+    <% end %>
 <%= f.submit %>
 <% end %>
 

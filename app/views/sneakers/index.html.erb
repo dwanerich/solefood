@@ -1,4 +1,8 @@
-<h1>All Sneakers</h1>
-<%= @sneakers.each do |sneaker| %>
-<%= sneaker.name %>
+<h1>Sneakers</h1>
+
+
+<ul>
+<% @sneakers.each do |sneaker| %>
+<li><%= sneaker.name %> by <%= sneaker.brand.name %></li>
 <% end %>
+<ul>
