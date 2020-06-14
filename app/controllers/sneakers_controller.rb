@@ -11,7 +11,6 @@ class SneakersController < ApplicationController
     end
 
     def create
-          binding.pry
         @sneaker = Sneaker.new(sneaker_params)
         @sneaker.user_id = session[:user_id]
 
@@ -23,7 +22,8 @@ class SneakersController < ApplicationController
     end
 
     def show
-        @sneaker = Sneaker.find(params[:id])
+        @sneaker = Sneaker.find_by_id(params[:id])
+        redirect_to '/' if !@sneaker
     end
 
         private

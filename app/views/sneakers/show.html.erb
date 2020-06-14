@@ -1,0 +1,16 @@
+<h2> @sneaker.name </h2>
+
+<%= @sneaker.username %>
+
+<h2>Add Comment </h2>
+
+<%= form_for(@comment) do |f|%>
+<%= f.label :description %>
+<%= f.text_field :description%> <br>
+
+    <%= f.hidden_field :sneaker_id %>
+    <%= f.hidden_field :user_id %>
+
+<%= f.submit %>
+<% end %>
+

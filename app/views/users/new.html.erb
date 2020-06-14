@@ -2,6 +2,17 @@
 
 <center><h2>Sign up</h2></center>
 
+<%if @user.errors.any?%>
+<% @user.errors %>
+
+<ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for (@user) do |f|%>
 <%= f.label :username%>
 <%= f.text_field :username, :placeholder => "username"%>

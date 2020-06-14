@@ -1,5 +1,16 @@
 <h2>Add New Brand </h2>
 
+<%if @brand.errors.any?%>
+<% @brand.errors %>
+
+<ul>
+    <% @brand.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@brand) do |f|%>
 <%= f.label :name %>
 <%= f.text_field :name %> <br>

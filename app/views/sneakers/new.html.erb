@@ -1,5 +1,18 @@
 <h2>Add New Sneaker </h2>
 
+
+<%if @sneaker.errors.any?%>
+<% @sneaker.errors %>
+
+<ul>
+    <% @sneaker.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for(@sneaker) do |f|%>
 <%= f.label :name %>
 <%= f.text_field :name %> <br>
@@ -14,24 +27,14 @@
 
 <%= f.collection_select :brand_id , Brand.all , :id , :name %>
 
-<%# <p>Or Create a new Brand: </p>
+<p>Or Create a new Brand: </p>
     <%= f.hidden_field :brand_id %>
 
-    <%# <%= f.fields_for @brand do |b| %>
-    <%# <%= b.label :name %>
-    <%# <%= b.text_field :name %> 
-    <%# <% end %>
-    <p>Add A Brand:</p>
-    <div>
     <%= f.fields_for :brand do |b| %>
-        <%= m.label :name %>
-        <%= m.text_field :name %>
-        <datalist id="brand_name">
-        <% Brand.all.each do |i| %>
-           <option value = "<%= i.name %>"></option>
-            <% end %>
-        </datalist>
+    <%= b.label :name %>
+    <%= b.text_field :name %>
+    <% end %>
 <%= f.submit %>
 <% end %>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>

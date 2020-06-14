@@ -3,6 +3,7 @@ class Sneaker < ApplicationRecord
     belongs_to :brand
     has_many :comments
     accepts_nested_attributes_for :brand
+    validates_presence_of :name
 
 
     def brand
