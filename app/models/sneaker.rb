@@ -6,12 +6,7 @@ class Sneaker < ApplicationRecord
     accepts_nested_attributes_for :brand
 
 
-    scope :sneaker, -> { where(price: '75') }
 
-
-    # def self.75
-    #     where(price:'75')
-    # end
     
 
 

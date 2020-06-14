@@ -2,6 +2,11 @@ class BrandsController < ApplicationController
     before_action :require_login
 
 
+    def index
+        @brands = Brand.all.alphabetize
+        
+    end
+
     def new
         if params[:sneaker_id]
         @sneaker = Sneaker.new
@@ -11,10 +16,6 @@ class BrandsController < ApplicationController
         else
             @brand = Brand.new
         end
-    end
-
-    def index
-        @brands = Brand.all
     end
 
     def create
