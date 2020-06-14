@@ -10,13 +10,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/auth/facebook/callback' => 'fb#create'
+  get '/auth/facebook/callback' => 'sessions#fb_create'
 
     # get 'sessions/auth'
 
-  
-
-  
 
   resources :users
   resources :sneakers
@@ -25,6 +22,10 @@ Rails.application.routes.draw do
 
   resources :brands do
     resources :sneakers
+  end
+
+  resources :sneakers do
+    resources :comments
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
