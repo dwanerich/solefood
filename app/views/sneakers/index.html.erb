@@ -1,12 +1,8 @@
 
 <h2>Sneaker Collection</h2>
-
-        <h2>Brands <%= User.find(session[:user_id]).brands.count %></h2>
-        <ul>
-        <% User.find(session[:user_id]).sneakers.each do |sneaker|%>
-        <li>
-        <%= sneaker.name%> by <%= sneaker.brand.name %> <a href="/sneakers/<%=sneaker.id%>/edit">edit</a>
-        </li>
+            <ul>
+        <% @sneakers.each do |sneaker| %>
+        <li><%= sneaker.name %></li>
         <%end%>
         </ul>
 

@@ -5,6 +5,7 @@ class SneakersController < ApplicationController
 
     def index
         @sneakers = Sneaker.all
+        @brands = Brand.all
         
     end
 
@@ -20,7 +21,7 @@ class SneakersController < ApplicationController
         @sneaker.user_id = session[:user_id]
 
         if @sneaker.save
-            redirect_to user_path(@user)
+            redirect_to user_sneaker_path(@user)
         else
             render :new
         end
@@ -28,6 +29,7 @@ class SneakersController < ApplicationController
 
     def show
         @sneakers = Sneaker.all
+        @brands = Brand.all
         # redirect_to '/' if !@sneaker
     end
 
@@ -40,7 +42,7 @@ class SneakersController < ApplicationController
         @sneaker = Sneaker.find_by(id: params[:id])
         @sneaker.update(sneaker_params)
         if @sneaker.valid?
-        redirect_to user_path
+        redirect_to user_sneaker_path(@user)
         else
         render :edit
         end

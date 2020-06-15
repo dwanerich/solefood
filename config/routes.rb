@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/profile' => 'users#show'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -14,7 +13,6 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#fb_create'
 
     # get 'sessions/auth'
-
 
   resources :users
   resources :sneakers
