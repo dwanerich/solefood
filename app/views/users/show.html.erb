@@ -3,7 +3,7 @@ Welcome <%= @user.username.capitalize %>! <br>
 
 you're signed in now. <br>
 
-<%= link_to "Add Sneaker", new_sneaker_path %> ? <br>
+<%= link_to "Add Sneaker", new_user_sneaker_path(@user) %> ? <br>
 <a href="/logout" class="btn btn-secondary">Log out</a> <br> <br><br>
 
 ______________________________________________________________________

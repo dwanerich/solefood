@@ -9,24 +9,26 @@ class SneakersController < ApplicationController
     end
 
     def new
+        @user = User.find_by(id: params[:id])
         @sneaker = Sneaker.new
         @sneaker.build_brand
     end
 
     def create
+        @user = User.find_by(id: params[:id])
         @sneaker = Sneaker.new(sneaker_params)
         @sneaker.user_id = session[:user_id]
 
         if @sneaker.save
-            redirect_to users_path(@user)
+            redirect_to user_path(@user)
         else
             render :new
         end
     end
 
     def show
-        @sneaker = Sneaker.find_by_id(params[:id])
-        redirect_to '/' if !@sneaker
+        @sneakers = Sneaker.all
+        # redirect_to '/' if !@sneaker
     end
 
     def edit

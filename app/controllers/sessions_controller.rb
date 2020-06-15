@@ -4,6 +4,9 @@ class SessionsController < ApplicationController
     end
 
     def new
+        if current_user
+            current_user
+        end
     end
 
     def fb_create
