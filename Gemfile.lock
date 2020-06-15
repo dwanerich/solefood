@@ -256,7 +256,6 @@ DEPENDENCIES
   pry
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
-  ruby-saml (~> 0.7.0)
   sass-rails (>= 6)
   selenium-webdriver
   spring
