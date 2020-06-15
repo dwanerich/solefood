@@ -5,9 +5,9 @@ ruby '2.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
-# gem 'ruby-saml', '~> 0.7.0' 
+gem "ruby-saml", ">= 1.7.0"
   gem 'omniauth', '>= 1.1.1'
-  gem 'omniauth-saml', '~> 1.0.0'
+  gem "omniauth-saml", ">= 1.10.0"
   gem 'omniauth-facebook'
   gem 'bcrypt'
   gem 'dotenv-rails'
