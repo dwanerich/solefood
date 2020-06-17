@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
         @user = User.find_by(id: params[:id])
         @comment = Comment.new(comment_params)
         @comment.user_id = session[:user_id]
+        redirect_to sneaker_comments_path
     end
 
     def edit
