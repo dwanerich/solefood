@@ -6,6 +6,7 @@ class SneakersController < ApplicationController
     def index
         @sneakers = Sneaker.all
         @brands = Brand.all
+        @users = User.all
         
     end
 
@@ -29,7 +30,8 @@ class SneakersController < ApplicationController
 
     def show
         @sneakers = Sneaker.all
-        @brands = Brand.all
+        @sneaker = Sneaker.find_by(id: params[:id])
+        @brands = Brand.find_by(id: params[:id])
         # redirect_to '/' if !@sneaker
     end
 

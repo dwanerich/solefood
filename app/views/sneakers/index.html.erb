@@ -1,10 +1,9 @@
 
-<h2>Sneaker Collection</h2>
-            <ul>
-        <% @sneakers.each do |sneaker| %>
-        <li><%= sneaker.name %></li>
-        <%end%>
-        </ul>
+<h2>Sneakers</h2>
+
+<% @sneakers.each do |sneaker| %>
+<li><%= sneaker.name.capitalize %> by <%= sneaker.brand.name.capitalize%></li>
+<% end %>
 
         <br><br><b><br><br><br><br></b>        <br><br><b><br><br><br><br></b>        <br><br><b><br>        <br><br><b><br><br><br><br></b>        <br><br><b><br><br><br><br></b>
 

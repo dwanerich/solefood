@@ -1,5 +1,12 @@
-<h2>Sneakers</h2>
-
+<br> <br> <br>
 <% @sneakers.each do |sneaker| %>
-<li><%= sneaker.name.capitalize %> by <%= sneaker.brand.name.capitalize%></li>
+<h1><%= sneaker.name %></h1>
+<% end %>
+
+<h4>Post A Comment</h4>
+
+<%= form_for :comment do |f|%>
+<%= f.label :description %>
+<%= f.text_field :description %> <br>
+<%= f.submit 'Post Comment' %>
 <% end %>

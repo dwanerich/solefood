@@ -2,13 +2,18 @@ class CommentsController < ApplicationController
 
     def index
         @comments = Comment.all
+        @sneakers = Sneaker.all
     end
     def new
+        @user = User.find_by(id: params[:id])
         @comment = Comment.new
+        @comment.build_sneaker
     end
 
     def create
+        @user = User.find_by(id: params[:id])
         @comment = Comment.new(comment_params)
+        @comment.user_id = session[:user_id]
     end
 
     def edit
