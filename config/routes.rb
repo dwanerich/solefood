@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
   get '/' => 'sessions#welcome'
-  get '/about' => 'application#about'
+  get '/profile' => 'users#show'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/auth/facebook/callback' => 'sessions#fb_create'
 
-    # get 'sessions/auth'
+  get '/auth/facebook/callback' => 'sessions#fb_create'
 
   resources :users
   resources :sneakers

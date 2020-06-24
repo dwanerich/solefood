@@ -1,12 +1,25 @@
 <br> <br> <br>
-<% @sneakers.each do |sneaker| %>
-<h1><%= sneaker.name %></h1>
-<% end %>
+<h3> <%= @sneaker.name %> by <%= @sneaker.brand.name %> </h3>
 
-<h4>Post A Comment</h4>
+<br>
+
+<h5>Add Comment</h5>
 
 <%= form_for :comment do |f|%>
-<%= f.label :description %>
-<%= f.text_field :description %> <br>
-<%= f.submit 'Post Comment' %>
+<%= f.text_field :description %> 
+<%= f.submit 'Post' %>
 <% end %>
+
+<br><br><br><br>
+<h5>Comments</h5> <ul>
+
+<% @comments.each do |comment|%>
+<li><%= comment %></li>
+<% end %> </ul>
+
+<br> <br> <br>
+<br> <br> <br>
+<br> <br> <br>
+<br> <br> <br>
+<br> <br> <br>
+<br> <br> <br>

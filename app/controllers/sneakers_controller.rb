@@ -29,10 +29,10 @@ class SneakersController < ApplicationController
     end
 
     def show
+        @comments = Comment.all
         @sneakers = Sneaker.all
         @sneaker = Sneaker.find_by(id: params[:id])
         @brands = Brand.find_by(id: params[:id])
-        # redirect_to '/' if !@sneaker
     end
 
     def edit
@@ -51,8 +51,10 @@ class SneakersController < ApplicationController
     end
 
     def destroy
-        sneaker = Sneaker.find_by(id: params[:id])
-        sneaker.delete
+        @sneaker = Sneaker.find_by(id: params[:id])
+        if sneaker && sneaker.user == Helpers.current_user(session)
+            sneaker.delete
+        end
         redirect_to sneakers_path
     end
 
