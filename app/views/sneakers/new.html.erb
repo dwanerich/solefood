@@ -15,12 +15,11 @@
 
 <%= form_for @sneaker do |f|%>
   <%=render partial: 'form', locals: {f: f}%>
-    <%=f.submit "Add Sneaker"%>
-
 
 <p>Select from existing Brands: </p>
 
-<%= f.collection_select :brand_id , Brand.all , :id , :name %>
+<%= f.collection_select :brand_id , Brand.all , :id , :name, :prompt =>
+true %>
 
 <p>Or Create a new Brand: </p>
 
@@ -28,9 +27,7 @@
     <%= b.label 'Name' %>
     <%= b.text_field :name %>
     <% end %>
-<%= f.submit 'Create Brand'%>
+<%= f.submit 'Add Sneaker'%>
 <% end %>
-
-<%# create link to from route 57 %>
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
