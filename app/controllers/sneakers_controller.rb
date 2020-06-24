@@ -22,7 +22,7 @@ class SneakersController < ApplicationController
         @sneaker.user_id = session[:user_id]
 
         if @sneaker.save
-            redirect_to user_path(@user)
+            redirect_to user_sneaker_path(@user)
         else
             render :new
         end

@@ -25,6 +25,14 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
     end
 
+    def destroy
+        @user = User.find_by(id: params[:id])
+        if @user && @user == Helpers.current_user(session)
+            @user.delete
+        end
+        redirect_to '/'
+    end
+
 
         private
 
