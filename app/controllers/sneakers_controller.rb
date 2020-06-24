@@ -52,8 +52,8 @@ class SneakersController < ApplicationController
 
     def destroy
         @sneaker = Sneaker.find_by(id: params[:id])
-        if sneaker && sneaker.user == Helpers.current_user(session)
-            sneaker.delete
+        if @sneaker && @sneaker.user == Helpers.current_user(session)
+            @sneaker.delete
         end
         redirect_to sneakers_path
     end
