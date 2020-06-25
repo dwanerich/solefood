@@ -18,7 +18,8 @@ ______________________________________________________________________
         <ul>
         <% User.find(session[:user_id]).sneakers.each do |sneaker|%>
         <li>
-        <%= sneaker.name%> by <%= sneaker.brand.name %> <a href="/sneakers/<%=sneaker.id%>/edit">edit</a>
+        <%= link_to sneaker.name, sneaker_path(sneaker) %>
+        by <%= sneaker.brand.name %> <a href="/sneakers/<%=sneaker.id%>/edit">edit</a>
         </li>
         <%end%>
         </ul>

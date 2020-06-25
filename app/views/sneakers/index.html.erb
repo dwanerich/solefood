@@ -1,8 +1,9 @@
 
 <h2>Sneakers</h2>
 
+
 <% @sneakers.each do |sneaker| %>
-<li><%= sneaker.name.capitalize %> by <%= sneaker.brand.name.capitalize%></li>
+<li><%= link_to sneaker.name, sneaker_path(sneaker) %> by <%= sneaker.brand.name.capitalize%></li>
 <% end %>
 
         <br><br><b><br><br><br><br></b>

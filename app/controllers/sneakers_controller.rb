@@ -17,6 +17,7 @@ class SneakersController < ApplicationController
     end
 
     def create
+        binding.pry
         @user = User.find_by(id: params[:id])
         @sneaker = Sneaker.new(sneaker_params)
         @sneaker.user_id = session[:user_id]
@@ -32,8 +33,7 @@ class SneakersController < ApplicationController
     end
 
     def show
-        @comments = Comment.all
-        @sneakers = Sneaker.all
+        @comment = Comment.new
         @sneaker = Sneaker.find_by(id: params[:id])
         @brands = Brand.find_by(id: params[:id])
     end
