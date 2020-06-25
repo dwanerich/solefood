@@ -18,8 +18,10 @@
 
 <p>Select from existing Brands: </p>
 
+
 <%= f.collection_select :brand_id , Brand.all , :id , :name, :prompt =>
 true %>
+
 
 <p>Or Create a new Brand: </p>
 

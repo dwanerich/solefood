@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 helper_method :current_user
+
     def about
     end
 
@@ -9,10 +10,6 @@ helper_method :current_user
 
   def is_logged_in?(session)
     !!session[:user_id]
-  end
-
-  def current_user
-    User.find_by(id: session[:user_id])  
   end
     
     def require_login

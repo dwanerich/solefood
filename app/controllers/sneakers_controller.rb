@@ -20,12 +20,15 @@ class SneakersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @sneaker = Sneaker.new(sneaker_params)
         @sneaker.user_id = session[:user_id]
-
-        if @sneaker.save
-            redirect_to user_sneaker_path(@user)
-        else
-            render :new
+        if params[:sneaker][:brand_id]
+            @sneaker.brand_id = params[:sneaker][:brand_id]
         end
+
+            if @sneaker.save
+                redirect_to user_path(current_user)
+            else
+                render :new
+            end
     end
 
     def show
@@ -37,13 +40,15 @@ class SneakersController < ApplicationController
 
     def edit
         @sneaker = Sneaker.find_by(id: params[:id])
+        if session[:user_id] != @sneaker.user_id
+            redirect_to user_path(session[:user_id])
+        end 
     end
 
     def update
-
         @sneaker = Sneaker.find_by(id: params[:id])
-        if @sneaker.valid?
-            @sneaker.update(sneaker_params)
+         if @sneaker.update(sneaker_params)
+                redirect_to sneaker_path
         else
             render :edit
         end

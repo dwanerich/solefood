@@ -50,11 +50,6 @@ App Highlights:
 
 MVC is a concept which stands for Models, Views, Controllers using the analogy of a restaurant Chef, waiter & costumer to best describe it relationship. MVC also represents a concept we know as separation of concerns.
 
-Model = Chef=> {“Brains Behind”}
-View = Customer => {“Visuals what you see”}
-Controller = Waiter=> {“Middle man”}
-our project required creation of two models:
-
 Model Associations
 User
 Sneaker
@@ -73,8 +68,8 @@ Class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :name
-      t.string :password
       t.string :password_digest
+      t.string :password_confirmation
 
       t.timestamps null: false
     end
@@ -102,7 +97,7 @@ validates :password, presence: true
 in our model class we inherit macros from brypt for security and validation. In our app we used the secure password and unique username as a way to control bad data coming into our base.
 
 
-At at point user can delete their sneaker or edit name.”
+At at point user can delete their sneaker, edit name, size too.”
 
 
 Contributing:
