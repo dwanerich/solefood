@@ -4,10 +4,15 @@ class SneakersController < ApplicationController
 
 
     def index
-        @sneakers = Sneaker.all
-        @brands = Brand.all
-        @users = User.all
         
+        if params[:brand_id]
+            @brand = Brand.find(params[:brand_id])
+            @sneakers = @brand.sneakers
+
+        else
+            @sneakers = Sneaker.all
+        end
+    
     end
 
     def new
@@ -17,7 +22,6 @@ class SneakersController < ApplicationController
     end
 
     def create
-        binding.pry
         @user = User.find_by(id: params[:id])
         @sneaker = Sneaker.new(sneaker_params)
         @sneaker.user_id = session[:user_id]
@@ -47,8 +51,9 @@ class SneakersController < ApplicationController
 
     def update
         @sneaker = Sneaker.find_by(id: params[:id])
-         if @sneaker.update(sneaker_params)
-                redirect_to sneaker_path
+        if @sneaker && @sneaker.user == Helpers.current_user(session)
+            @sneaker.update(sneaker_params)
+            redirect_to user_path(session[:user_id])
         else
             render :edit
         end

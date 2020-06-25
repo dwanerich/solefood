@@ -11,11 +11,12 @@ class CommentsController < ApplicationController
     end
 
     def create
-      binding.pry
-        @sneaker = Sneaker.find_by(id: params[:id])
+        @sneaker = Sneaker.find_by(id: params[:comment][:sneaker_id])
         @comment = Comment.new(comment_params)
         @comment.user_id = session[:user_id]
-        redirect_to sneaker_comments_path
+        @comment.sneaker = @sneaker
+        @comment.save
+        redirect_to sneaker_path(@comment.sneaker)
     end
 
     
@@ -48,6 +49,6 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:description, :sneaker_id)
+        params.require(:comment).permit(:description, :user_id, :sneaker_id)
     end
 end

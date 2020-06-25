@@ -4,6 +4,7 @@ class Sneaker < ApplicationRecord
     has_many :comments
     validates_presence_of :name
     accepts_nested_attributes_for :brand
+    accepts_nested_attributes_for :comments
 
 
 
