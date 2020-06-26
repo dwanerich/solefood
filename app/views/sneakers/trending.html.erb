@@ -1,0 +1,14 @@
+
+<h2>Trending</h2>
+
+
+<% @sneakers.each do |sneaker| %>
+<li><%= link_to sneaker.name, sneaker_path(sneaker) %> by <%= sneaker.brand.name.capitalize %> - <%= sneaker.comments.size %> Comments</li>
+<% end %>
+
+        <br><br><b><br><br><br><br></b>
+        <br><br><b><br><br><br><br></b>
+        <br><br><b><br><br><b><br><br>
+        <br><br></b><br><br><b><br><br>
+        <br><br></b>
+

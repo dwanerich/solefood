@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get '/' => 'sessions#welcome'
   get '/profile' => 'users#show'
+  get '/trending' => 'sneakers#trending'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'

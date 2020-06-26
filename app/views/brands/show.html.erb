@@ -1,2 +1,5 @@
 <h1><%= @brand.name %></h1>
-
+<ul>
+<% @brand.sneakers.each do |sneaker|%>
+<li><%= sneaker.name %> by <%= sneaker.brand.name %></li>
+<% end %> </ul>

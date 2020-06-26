@@ -5,25 +5,7 @@ class Sneaker < ApplicationRecord
     validates_presence_of :name
     accepts_nested_attributes_for :brand
     accepts_nested_attributes_for :comments
+    scope :most_comments, -> {joins(:comments).group(:sneaker_id).order("COUNT(comments.sneaker_id) DESC")}
 
 
-
-    
-
-
-    # def brand
-    # end
-
-    # def brand=
-    # end
-
-    # def build_brand
-    # end
-
-    # def brand_id
-    #     @sneaker.brand.id
-    # end
-
-    # def brand_id=
-    # end
 end

@@ -4,14 +4,18 @@ class SneakersController < ApplicationController
 
 
     def index
-        
         if params[:brand_id]
             @brand = Brand.find(params[:brand_id])
             @sneakers = @brand.sneakers
-
         else
             @sneakers = Sneaker.all
         end
+
+    def trending
+
+        @sneakers = Sneaker.all.most_comments
+        
+    end
     
     end
 
@@ -40,6 +44,7 @@ class SneakersController < ApplicationController
         @comment = Comment.new
         @sneaker = Sneaker.find_by(id: params[:id])
         @brands = Brand.find_by(id: params[:id])
+        @users = User.all
     end
 
     def edit
