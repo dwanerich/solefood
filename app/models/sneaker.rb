@@ -6,6 +6,4 @@ class Sneaker < ApplicationRecord
     accepts_nested_attributes_for :brand
     accepts_nested_attributes_for :comments
     scope :most_comments, -> {joins(:comments).group(:sneaker_id).order("COUNT(comments.sneaker_id) DESC")}
-
-
 end
